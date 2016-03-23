@@ -37,6 +37,8 @@
     <xwiki.extension.features>org.xwiki.platform:xwiki-platform-faq,org.xwiki.platform:xwiki-platform-faq-ui</xwiki.extension.features>
     <!-- Name to display by the Extension Manager -->
     <xwiki.extension.name>FAQ Application</xwiki.extension.name>
+    <!-- Extension Manager category -->
+    <xwiki.extension.category>application</xwiki.extension.category>
   </properties>
   <dependencies>
     <dependency>
