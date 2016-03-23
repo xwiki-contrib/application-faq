@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.xwiki.contrib</groupId>
     <artifactId>application-faq</artifactId>
-    <version>8.2-SNAPSHOT</version>
+    <version>8.1-SNAPSHOT</version>
   </parent>
   <artifactId>application-faq-ui</artifactId>
   <name>FAQ - UI</name>
