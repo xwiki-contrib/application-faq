@@ -23,18 +23,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.xwiki.platform</groupId>
-    <artifactId>xwiki-platform-faq</artifactId>
+    <groupId>org.xwiki.contrib</groupId>
+    <artifactId>application-faq</artifactId>
     <version>8.1-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-platform-faq-ui</artifactId>
-  <name>XWiki Platform - FAQ - UI</name>
+  <artifactId>application-faq-ui</artifactId>
+  <name>FAQ - UI</name>
   <packaging>xar</packaging>
   <properties>
     <!-- Don't run CLIRR here since there's no Java code. -->
     <xwiki.clirr.skip>true</xwiki.clirr.skip>
     <!-- Old names of this module used for retro compatibility when resolving dependencies of old extensions -->
-    <xwiki.extension.features>org.xwiki.platform:xwiki-platform-faq</xwiki.extension.features>
+    <xwiki.extension.features>org.xwiki.platform:xwiki-platform-faq,org.xwiki.platform:xwiki-platform-faq-ui</xwiki.extension.features>
     <!-- Name to display by the Extension Manager -->
     <xwiki.extension.name>FAQ Application</xwiki.extension.name>
   </properties>
@@ -42,13 +42,13 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-rendering-macro-velocity</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-rendering-macro-include</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -67,21 +67,21 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-localization-source-wiki</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <scope>runtime</scope>
     </dependency>
     <!-- Required by wiki macros -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-rendering-wikimacro-store</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <scope>runtime</scope>
     </dependency>
     <!-- We need the livetable for the FAQ Home page that lists all FAQs -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-livetable-ui</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <type>xar</type>
       <scope>runtime</scope>
     </dependency>
@@ -89,19 +89,37 @@
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-search-ui</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <type>xar</type>
       <scope>runtime</scope>
     </dependency>
-    <!-- The Panels application is an optional dependency since the FAQ application can work even if it's not present but if it's
-         there then it'll register in it. -->
+    <!-- The Panels application is an optional dependency since the FAQ application can work even if it's not present
+         but if it's there then it'll register in it. -->
     <dependency>
       <groupId>org.xwiki.platform</groupId>
       <artifactId>xwiki-platform-panels-ui</artifactId>
-      <version>${project.version}</version>
+      <version>${platform.version}</version>
       <type>xar</type>
       <scope>runtime</scope>
       <optional>true</optional>
     </dependency>
   </dependencies>
+  <build>
+    <!-- Needed to add support for the XAR packaging -->
+    <extensions>
+      <extension>
+        <groupId>org.xwiki.commons</groupId>
+        <artifactId>xwiki-commons-tool-xar-handlers</artifactId>
+        <version>${commons.version}</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <!-- The XAR packaging uses the XAR plugin and thus we need to define what version to use -->
+      <plugin>
+        <groupId>org.xwiki.commons</groupId>
+        <artifactId>xwiki-commons-tool-xar-plugin</artifactId>
+        <version>${commons.version}</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>

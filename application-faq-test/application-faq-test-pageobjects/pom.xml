@@ -23,22 +23,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.xwiki.platform</groupId>
-    <artifactId>xwiki-platform-faq</artifactId>
+    <groupId>org.xwiki.contrib</groupId>
+    <artifactId>application-faq-test</artifactId>
     <version>8.1-SNAPSHOT</version>
   </parent>
-  <artifactId>xwiki-platform-faq-test</artifactId>
-  <name>XWiki Platform - FAQ - Tests - Parent POM</name>
-  <packaging>pom</packaging>
-  <description>XWiki Platform - FAQ - Tests - Parent POM</description>
-  <properties>
-    <!-- Don't run CLIRR in test modules since we don't care about backward compatibility for tests -->
-    <xwiki.clirr.skip>true</xwiki.clirr.skip>
-    <!-- Don't run Checkstyle in test modules -->
-    <!--xwiki.checkstyle.skip>true</xwiki.checkstyle.skip-->
-  </properties>
-  <modules>
-    <module>xwiki-platform-faq-test-pageobjects</module>
-    <module>xwiki-platform-faq-test-tests</module>
-  </modules>
+  <artifactId>application-faq-test-pageobjects</artifactId>
+  <name>FAQ - Tests - Page Objects</name>
+  <packaging>jar</packaging>
+  <description>FAQ - Tests - Page Objects</description>
+  <dependencies>
+    <dependency>
+      <groupId>org.xwiki.platform</groupId>
+      <artifactId>xwiki-platform-test-ui</artifactId>
+      <version>${platform.version}</version>
+    </dependency>
+  </dependencies>
 </project>
