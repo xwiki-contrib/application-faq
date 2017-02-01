@@ -26,5 +26,4 @@
 
 xwikiModule {
     name = 'application-faq'
-    profiles = 'legacy,integration-tests,jetty,hsqldb,firefox'
 }
