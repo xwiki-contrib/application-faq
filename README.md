@@ -11,4 +11,4 @@ Questions and answer for frequently asked questions
 * License: LGPL 2.1
 * Translations: N/A
 * Sonar Dashboard: N/A
-* Continuous Integration Status: [![Build Status](http://ci.xwiki.org/buildStatus/icon?job=Contrib%20-%20FAQ%20Application)](http://ci.xwiki.org/job/Contrib%20-%20FAQ%20Application/)
+* Continuous Integration Status: [![Build Status](http://ci.xwiki.org/buildStatus/icon?job=XWiki Contrib/application-faq/master)](http://ci.xwiki.org/view/Contrib/job/XWiki%20Contrib/job/application-faq/job/master/)
