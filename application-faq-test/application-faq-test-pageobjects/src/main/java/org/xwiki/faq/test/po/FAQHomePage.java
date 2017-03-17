@@ -37,7 +37,10 @@ import org.xwiki.test.ui.po.ViewPage;
  */
 public class FAQHomePage extends ViewPage
 {
-    private static final String MAIN_WIKI = "xwiki";
+    /**
+     * Main wiki id.
+     */
+    public static final String MAIN_WIKI = "xwiki";
 
     /**
      * FAQ home page document reference.
@@ -46,6 +49,7 @@ public class FAQHomePage extends ViewPage
         new DocumentReference(MAIN_WIKI, Arrays.asList("FAQ"), "WebHome"));
 
     private EntityReference homeReference;
+
 
     /**
      * @param homeReference the reference to the home page where the FAQ app is installed (several versions of the FAQ
