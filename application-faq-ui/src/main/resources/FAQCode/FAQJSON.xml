@@ -45,7 +45,6 @@
   <hidden>true</hidden>
   <content>{{include reference="XWiki.LiveTableResultsMacros" /}}
 {{velocity wiki="false"}}
-    #gridresultwithfilter("$!request.classname" $request.collist.split(',') '' "${extra}" $params)
-    #gridresultwithfilter("$!request.classname" $request.collist.split(',') '' " and doc.fullName&lt;&gt;'FAQCode.FAQTemplate' and doc.space='$!request.space'" [])
+#gridresultwithfilter($request.classname $request.collist.split(",") "" " and doc.fullName&lt;&gt;'FAQCode.FAQTemplate' and doc.space='$!request.space'")
 {{/velocity}}</content>
 </xwikidoc>
