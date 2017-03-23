@@ -27,7 +27,6 @@
     <artifactId>parent-platform</artifactId>
     <version>7.4-12</version>
   </parent>
-  <groupId>org.xwiki.contrib</groupId>
   <artifactId>application-faq</artifactId>
   <version>8.2-SNAPSHOT</version>
   <name>FAQ - Parent POM</name>
