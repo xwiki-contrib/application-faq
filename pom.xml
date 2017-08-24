@@ -31,7 +31,7 @@
   <version>8.1.4-SNAPSHOT</version>
   <name>FAQ - Parent POM</name>
   <packaging>pom</packaging>
-  <description>Questions and answer for frequently asked questions</description>
+  <description>Questions and answers for frequently asked questions</description>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/application-faq.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/application-faq.git</developerConnection>
