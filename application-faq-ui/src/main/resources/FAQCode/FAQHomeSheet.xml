@@ -31,8 +31,8 @@
   <parent>FAQCode.WebHome</parent>
   <author>xwiki:XWiki.Admin</author>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <date>1467377028000</date>
-  <contentUpdateDate>1467377028000</contentUpdateDate>
+  <date>1515749592000</date>
+  <contentUpdateDate>1515749592000</contentUpdateDate>
   <version>1.1</version>
   <title/>
   <comment/>
@@ -92,12 +92,14 @@
     === #if($services.icon)$services.icon.render('add')#end $services.localization.render('platform.faq.create.title') ===
 
     (((
-    {{html wiki='true'}}
     #if ($isGuest)
       #set($login = ${escapetool.xml($doc.getURL("login", "xredirect=$doc.externalURL"))})
       #set($register = ${escapetool.xml($xwiki.getURL($services.model.resolveDocument('', 'default'), "register", "xredirect=$doc.externalURL"))})
-      $services.localization.render('platform.faq.need', ["&lt;a href=$login&gt;","&lt;/a&gt;","&lt;a href=$register&gt;","&lt;/a&gt;"])
+      {{html clean='false'}}
+        $services.localization.render('platform.faq.need', ["&lt;a href=$login&gt;","&lt;/a&gt;","&lt;a href=$register&gt;","&lt;/a&gt;"])
+      {{/html}}
     #else
+      {{html clean='false' wiki='true'}}
       &lt;form action="$doc.getURL()" id="newfaq" class="xformInline"&gt;
         &lt;div&gt;
           &lt;input type="hidden" name="parent" value="${faqSpace}.WebHome" /&gt;
@@ -112,8 +114,8 @@
           &lt;/span&gt;
         &lt;/div&gt;
       &lt;/form&gt;
+      {{/html}}
     #end
-    {{/html}}
     )))
   )))
 
