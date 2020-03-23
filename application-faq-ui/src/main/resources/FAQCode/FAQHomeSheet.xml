@@ -101,10 +101,11 @@
           $services.localization.render('platform.faq.need', ["&lt;a href=$login&gt;","&lt;/a&gt;","&lt;a href=$register&gt;","&lt;/a&gt;"])
         {{/html}}
       #elseif ($services.security.authorization.hasAccess('edit', $faqSpaceReference))
+        #set ($parent = $services.model.resolveDocument('', 'default', $doc.documentReference.lastSpaceReference))
         {{html clean='false' wiki='true'}}
         &lt;form action="$doc.getURL()" id="newfaq" class="xformInline"&gt;
           &lt;div&gt;
-            &lt;input type="hidden" name="parent" value="${faqSpace}.WebHome" /&gt;
+            &lt;input type="hidden" name="parent" value="$parent" /&gt;
             &lt;input type="hidden" name="template" value="FAQCode.FAQTemplate" /&gt;
             &lt;input type="hidden" name="createFAQ" value="true" /&gt;
             #if ($request.createFAQ == 'true' &amp;&amp; $stringtool.isBlank($question))
