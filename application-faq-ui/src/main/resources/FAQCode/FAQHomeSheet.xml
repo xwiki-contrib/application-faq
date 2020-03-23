@@ -101,7 +101,7 @@
           $services.localization.render('platform.faq.need', ["&lt;a href=$login&gt;","&lt;/a&gt;","&lt;a href=$register&gt;","&lt;/a&gt;"])
         {{/html}}
       #elseif ($services.security.authorization.hasAccess('edit', $faqSpaceReference))
-        #set ($parent = $services.model.resolveDocument('', 'default', $doc.documentReference.lastSpaceReference))
+        #set ($parent = $services.model.resolveDocument('', 'default', $faqSpaceReference))
         {{html clean='false' wiki='true'}}
         &lt;form action="$doc.getURL()" id="newfaq" class="xformInline"&gt;
           &lt;div&gt;
