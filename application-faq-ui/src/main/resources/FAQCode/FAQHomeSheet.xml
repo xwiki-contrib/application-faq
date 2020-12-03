@@ -75,7 +75,8 @@
     === #if($services.icon)$services.icon.render('find')#end $services.localization.render('platform.faq.search.title') ===
     (((
     {{html}}
-    &lt;form action="$xwiki.getURL('FAQ.FAQSearch')" class="xformInline"&gt;
+    #set($searchDocumentRef = $services.model.createDocumentReference('FAQSearch', $doc.documentReference.parent))
+    &lt;form action="$xwiki.getURL($searchDocumentRef)" class="xformInline"&gt;
       &lt;div&gt;
       ## Lucene search needs the $request.space param
       &lt;input type="hidden" name="space" value="${faqSpace}" /&gt;
