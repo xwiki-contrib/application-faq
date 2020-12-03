@@ -56,7 +56,11 @@
     #set ($question = $stringtool.stripEnd($stringtool.trim($!{request.question}), '?'))
     ## If there's no question then issue a warning below
     #if (!$stringtool.isBlank($question))
-      #set ($newFAQReference = $services.model.createDocumentReference('', '', "$question"))
+      #set ($faqPageName = $question)
+      #if("$!services.modelvalidation" != '' &amp;&amp; $services.modelvalidation.configuration.useTransformation())
+        #set($faqPageName = $services.modelvalidation.transformName($faqPageName))
+      #end
+      #set ($newFAQReference = $services.model.createDocumentReference('', '', "$faqPageName"))
       $response.sendRedirect($xwiki.getURL($newFAQReference, 'inline', "$!{request.queryString}&amp;title=${escapetool.url($question)}"))
     #end
   #end
